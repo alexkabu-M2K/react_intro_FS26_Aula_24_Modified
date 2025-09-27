@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style_FS26_Aula_24 - Modified.css">
+        <title>Tela de Login com React</title>
+    </head>
+    <body>
+
+        <main id="container"></main>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <script type="text/babel">
+
+            function Input({placeholder}) {
+                return <input type="text" placeholder={placeholder}/>
+            };
+
+            function Inputs() {
+                return (
+                    <div className="inputs">
+                        <Input placeholder="Usuário"/>
+                        <Input placeholder="Senha"/>
+                    </div>
+                );
+            };
+
+            function Show() {
+                return (
+                    <div className="show">
+                        <input type="checkbox"/>
+                        <label>Mostrar Senha</label>
+                    </div>
+                );
+            };
+
+            function Button() {
+                return <button type="button">Entrar</button>;
+            };
+
+            function Small({children}) {
+                return <small>{children}</small>;
+            };
+
+            function Smalls() {
+                return (
+                    <div className="smalls">
+                        <Small>Esqueceu a senha? Recupere <a href="#">aqui</a>.</Small>
+                        <Small>Não possui cadastro? Cadastre-se <a href="#">aqui</a>.</Small>
+                    </div>
+                );
+            };
+
+            function Form() {
+                return (
+                    <form>
+                        <Inputs />
+                        <Show />
+                        <Button />
+                        <Smalls />
+                    </form>
+                );
+            };
+
+            const App = (
+                <Form />
+            );
+
+            const container = document.querySelector('#container');
+            const root = ReactDOM.createRoot(container);
+            root.render(App);
+
+        </script>
+    </body>
+</html>
